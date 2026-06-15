@@ -1,6 +1,9 @@
 from fastmcp import FastMCP
 import os
-import aiosqlite  # Changed: sqlite3 → aiosqlite
+try:
+    import aiosqlite  # Changed: sqlite3 → aiosqlite
+except ImportError:
+    raise ImportError("Missing dependency: aiosqlite is required. Install it with: pip install aiosqlite")
 import tempfile
 # Use temporary directory which should be writable
 TEMP_DIR = tempfile.gettempdir()
